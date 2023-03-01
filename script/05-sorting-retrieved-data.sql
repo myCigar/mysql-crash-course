@@ -1,20 +1,21 @@
 -- 第5章 排序检索数据
 
--- sort seleted data
-SELECT `date`, `open`, `close`
-  FROM gold.price
-  ORDER BY `open`
-  LIMIT 10;
+-- 排序数据
+SELECT prod_name
+FROM products
+ORDER BY prod_name;
 
--- multi-sort seleted data
-SELECT `date`, `volume`, `sentiment`
-  FROM gold.event
-  ORDER BY `date`, `volume` DESC
-  LIMIT 10;
+-- 按多个列排序
+SELECT prod_id, prod_price, prod_name
+FROM products
+ORDER BY prod_price, prod_name;
 
--- sort seleted data
-SELECT `date`, `open`, `close`
-  FROM gold.price
-  ORDER BY `open` DESC
-  LIMIT 10;
+-- 指定排序方向
+SELECT prod_id, prod_price, prod_name
+FROM products
+ORDER BY prod_price DESC;
 
+## 先按prod_price降序排序，再按prod_name升序排序
+SELECT prod_id, prod_price, prod_name
+FROM products
+ORDER BY prod_price DESC, prod_name;

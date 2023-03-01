@@ -1,19 +1,30 @@
 -- 第4章 检索数据
 
--- select data with limit
-SELECT `idprice`, `date`, `open`, `high`, `low`, `close`
-  FROM gold.price
-  LIMIT 5;
+-- 检索单个列
+SELECT prod_name
+FROM products;
 
--- select data with limit and offset
-SELECT `idprice`, `date`, `open`, `high`, `low`, `close`
-  FROM gold.price
-  LIMIT 3, 5;
+-- 检索多个列
+SELECT prod_id, prod_name, prod_price
+FROM products;
 
--- distinct selection
-SELECT DISTINCT `scope_id`
-  FROM gold.event;
+-- 检索所有列
+SELECT *
+FROM products;
 
--- multiple distinct selection
-SELECT DISTINCT `scope_id`, `event_type_id`
-  FROM gold.event;
+-- 检索不同的列
+SELECT DISTINCT vend_id
+FROM products;
+
+-- 限制结果
+SELECT prod_name
+FROM products
+LIMIT 5;
+
+SELECT prod_name
+FROM products
+LIMIT 5, 5;
+
+-- 使用完全限定的表名
+SELECT products.prod_name
+FROM crashcourse.products;

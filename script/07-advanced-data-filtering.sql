@@ -1,21 +1,23 @@
 -- 第7章 数据过滤
 
--- AND operator
-SELECT `date`, `open`, `close`
-  FROM gold.price
-  WHERE open > 1300 AND open < 1310;
+-- AND 操作符
+SELECT prod_id, prod_price, prod_name
+FROM products
+WHERE vend_id = 1003 AND prod_price <= 10;
 
--- OR operator
-SELECT `date`, `open`, `close`
-  FROM gold.price
-  WHERE `date` = '2015-12-11' OR `date` = '2015-12-23';
+-- OR 操作符
+SELECT prod_id, prod_price, prod_name
+FROM products
+WHERE vend_id = 1002 OR prod_price <= 10;
 
--- IN operator
-SELECT `date`, `open`, `close`
-  FROM gold.price
-  WHERE `date` IN ('2015-11-11', '2015-12-11', '2015-12-23');
+-- IN 操作符
+SELECT prod_name, prod_price
+FROM products
+WHERE vend_id IN (1002, 1003)
+ORDER BY prod_name;
 
--- NOT operator
-SELECT COUNT(`date`)
-  FROM gold.price
-  WHERE `date` NOT IN ('2015-11-11', '2015-12-11', '2015-12-23');
+-- NOT 操作符
+SELECT prod_name, prod_price
+FROM products
+WHERE vend_id NOT IN (1002, 1003)
+ORDER BY prod_name;
